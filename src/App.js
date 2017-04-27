@@ -44,10 +44,37 @@ markedComplete(todo){
     })
   })
 }
-
-toggledState(todo){
-
+updateTodo (todoToChange, task) {
+  let updatedTodos = this.state.todos.map(todo => {
+    if (todo === todoToChange) {
+      todo.task = task
+    }
+    return todo
+  })
+  this.setState({todos: updatedTodos})
 }
+
+togglingThis(todos,todoToChange/*togglingThis goes here*/){
+let updatedTodos = this.state.todos.map(todo=>{
+  if (todo === todoToChange) {
+    todo.complete = !todos.complete
+  }
+  return todos
+})
+  this.setState({ todos: updatedTodos })
+ }
+
+
+ /*let newTodos = this.state.todos.map(checked=>{
+  checked.complete ==togglingThis;){
+  return(checked);
+})
+this.setState({
+todos: newTodos
+})
+
+}*/
+//}
 
 
 /*Footer this was called itemsLeft*/
@@ -71,7 +98,7 @@ itemsLeft() {
         <Main todos={this.state.todos}
         deletedTodos={this.deletedTodos.bind(this)}
         markedComplete={this.markedComplete.bind(this)}
-        toggledState={this.toggledState.bind(this)}
+        togglingThis={this.togglingThis.bind(this)}
         />
 
         {/*<!-- This footer should hidden by default and shown when there are todos -->*/}
