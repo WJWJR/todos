@@ -5,7 +5,8 @@ class Main extends Component {
     return (
       <section className="main">
         <input className="toggle-all" type="checkbox"/>
-        <label htmlFor="toggle-all" onClick={this.props.toggledState.bind(this, todo)}>Mark all as complete</label>
+        //<label htmlFor="toggle-all" onClick={this.props.toggledState.bind(this, this.props.todoCounter === 0 ? false : true)}>Mark all as complete</label>
+        <label htmlFor="toggle-all" onClick={this.props.toggledState.bind(this)}>Mark all as complete</label>
         <ul className="todo-list">
         {/*<!-- These are here just to show the structure of the list items -->*/}
         {/*<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->*/}

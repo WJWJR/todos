@@ -45,8 +45,12 @@ markedComplete(todo){
   })
 }
 
+toggledState(todo){
 
-/*Footer*/
+}
+
+
+/*Footer this was called itemsLeft*/
 itemsLeft() {
   if (this.state.todos.length === 0) {
     return "0"
@@ -67,10 +71,11 @@ itemsLeft() {
         <Main todos={this.state.todos}
         deletedTodos={this.deletedTodos.bind(this)}
         markedComplete={this.markedComplete.bind(this)}
+        toggledState={this.toggledState.bind(this)}
         />
 
         {/*<!-- This footer should hidden by default and shown when there are todos -->*/}
-        <Footer counter={this.itemsLeft()} />
+        {this.state.todos.length === 0 ? null : <Footer counter={this.itemsLeft()} />}
 
       </section>
 
